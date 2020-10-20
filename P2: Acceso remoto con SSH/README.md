@@ -123,3 +123,93 @@ Hay varias formas de hacerlo.
 
 El modo recomendado es usando el comando ssh-copy-id. Ejemplo para copiar la clave pública del usuario actual al usuario remoto en la máquina remota: "ssh-copy-id rodriguez4@192.168.0.31".
 ![](10.png)
+
+Comprobar que ahora al acceder remotamente vía SSH
+
+* Desde client05g, NO se pide password.
+
+![](11.png)
+* Desde client05w, SI se pide el password.
+
+![](12.png)
+## 6. Uso de SSH como túnel para X
+Instalar en el servidor una aplicación de entorno gráfico (Geany) que no esté en los clientes. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
+
+Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (Opción X11Forwarding yes)
+
+![](13.png)
+Reiniciar el servicio SSH para que se lean los cambios de configuración.
+
+Vamos a client05g.
+
+"zypper se geany",comprobar que no está instalado el programa.
+
+![](14.png)
+Vamos a comprobar desde client05g, que funciona geany(del servidor).
+
+"ssh -X rodriguez1@192.168.0.31", nos conectamos de forma remota al servidor, y ahora ejecutamos geany de forma remota.
+ ![](15.png)
+
+    ¡OJO! El parámetro es -X en mayúsculas, no minúsculas.
+## 7. Aplicaciones Windows nativas
+Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
+
+Instalar emulador Wine en el server05g.
+
+Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+
+Comprobar el funcionamiento de APP2 en server05g.
+
+Comprobar funcionamiento de APP2, accediendo desde client05g.
+## 8. Restricciones de uso
+Vamos a crear una restricción de uso del SSH para un usuario:
+
+En el servidor tenemos el usuario rodriguez2. Desde local en el servidor podemos usar sin problemas el usuario.
+
+Vamos a modificar SSH de modo que al usar el usuario por SSH desde los clientes tendremos permiso denegado.
+
+Capturar imagen de los siguientes pasos:
+
+Consultar/modificar fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para restringir el acceso a determinados usuarios. Consultar las opciones AllowUsers, DenyUsers (Más información en: man sshd_config)
+
+"/usr/sbin/sshd -t; echo $?", comprobar si la sintaxis del fichero de configuración del servicio SSH es correcta (Respuesta 0 => OK, 1 => ERROR).
+
+![](16.png)
+
+Comprobarlo la restricción al acceder desde los clientes.
+![](17.png)
+
+Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
+
+Crear grupo remoteapps
+
+Incluir al usuario 1er-apellido-alumno4 en el grupo remoteapps.
+
+Localizar el programa APP1. Posiblemente tenga permisos 755.
+
+Poner al programa APP1 el grupo propietario a remoteapps.
+
+Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usuarios que no pertenezcan al grupo puedan ejecutar el programa.
+
+Comprobamos el funcionamiento en el servidor en local.
+
+Comprobamos el funcionamiento desde el cliente en remoto (Recordar ssh -X).
+## 9. Servidor SSH en Windows
+  Configurar el servidor Windows con los siguientes valores:
+
+  * SO Windows Server
+  * Nombre de equipo: server05s
+  * Añadir en C:\Windows\System32\drivers\etc\hosts el equipo client05g y client05w.
+
+Comprobar haciendo ping a ambos equipos.
+
+Instalar y configurar el servidor SSH en Windows.
+
+Elegir la opción que se quiera: OpenSSH o integrado.
+
+Documentar el proceso de instalación y configuración.
+
+Comprobar acceso SSH desde los clientes Windows y GNU/Linux al servidor SSH Windows.
+
+        "netstat -n" en Windows.
+        "lsof -i -n" en GNU/Linux.
