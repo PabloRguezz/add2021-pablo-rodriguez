@@ -73,9 +73,11 @@ Podemos modificar la configuración:
         (b) Yast -> Samba Server -> Recursos compartidos -> Configurar.
 
 **"testparm"**, verificar la sintaxis del fichero de configuración.
+
 ![](14.png)
 
 **"more /etc/samba/smb.conf"**, consultar el contenido del fichero de configuración.
+
 ![](15.png)
 
 ![](13.png)
