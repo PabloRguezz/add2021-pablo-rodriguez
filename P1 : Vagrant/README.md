@@ -5,13 +5,13 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 
   * Debemos estar dentro de vagrant5-celtics.
 
-  * vagrant up, para iniciar una nueva instancia de la máquina.
+  * **"vagrant up"**, para iniciar una nueva instancia de la máquina.
 
 
   ![](1.png)
 
 
-* vagrant ssh: Conectar/entrar en nuestra máquina virtual usando SSH.
+* **"vagrant ssh"**: Conectar/entrar en nuestra máquina virtual usando SSH.
 
 ![](2.png)
 ## 5. Proyecto Hawks
@@ -53,7 +53,7 @@ Incluir en el fichero de configuración Vagrantfile lo siguiente:
 * config.vm.synced_folder "html", "/var/www/html", para sincronizar la carpeta exterior html con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
 
 ![](7.png)
-* vagrant up, para crear la MV.
+* **"vagrant up"**, para crear la MV.
 
 
 Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
@@ -63,7 +63,7 @@ Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestra
 
 ### 6.2 Proyecto Raptors (Suministro mediante Puppet)
 
-* Crear directorio vagrantXX-raptors como nuevo proyecto Vagrant.
+* Crear directorio vagrant5-raptors como nuevo proyecto Vagrant.
 
 * Modificar el archivo Vagrantfile de la siguiente forma:
 
@@ -76,17 +76,31 @@ Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestra
 ![](14.png)
 
 Con la MV encendida
-* vagrant reload, recargar la configuración.
+* **"vagrant reload"**, recargar la configuración.
 
 ![](15.png)
 
-* vagrant provision, volver a ejecutar la provisión.
+* **"vagrant provision"**, volver a ejecutar la provisión.
 
 ![](16.png)
 Con la MV apagada:
-  * vagrant destroy, destruir la MV.
+  * **"vagrant destroy"**, destruir la MV.
 
 ![](17.png)
-  * vagrant up volver a crearla.
+  * **"vagrant up"** volver a crearla.
 
 ![](18.png)
+### 7.2 Crear caja Vagrant
+
+Una vez hemos preparado la máquina virtual ya podemos crear el box.
+* Vamos a crear una nueva carpeta vagrant5-bulls, para este nuevo proyecto vagrant.
+
+* VBoxManage list vms, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegir una de las máquinas (VMNAME).Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
+
+* **"vagrant package --base VMNAME --output nombre-alumno5.box"**, parar crear nuestra propia caja.
+
+* Comprobamos que se ha creado el fichero nombre-alumnoXX.box en el directorio donde hemos ejecutado el comando.
+
+* **"vagrant box add nombre-alumno/bulls nombre-alumno5.box"**, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
+
+* **"vagrant box list"**, consultar ahora la lista de cajas Vagrant disponibles.
