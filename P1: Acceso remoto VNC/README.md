@@ -1,6 +1,6 @@
-**P1: ACCESO REMOTO VNC**
+##P1: ACCESO REMOTO VNC
 
-**1. Windows: Slave VNC**
+###**1. Windows: Slave VNC**
 
 
   Configurar las máquinas virtuales para que tengan lo siguiente:
