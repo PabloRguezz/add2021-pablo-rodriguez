@@ -95,12 +95,20 @@ Con la MV apagada:
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * Vamos a crear una nueva carpeta vagrant5-bulls, para este nuevo proyecto vagrant.
 
-* VBoxManage list vms, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegir una de las máquinas (VMNAME).Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
 
+* **"VBoxManage list vms"**, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegir una de las máquinas (VMNAME).Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
+
+![](19.png)
 * **"vagrant package --base VMNAME --output nombre-alumno5.box"**, parar crear nuestra propia caja.
+
 
 * Comprobamos que se ha creado el fichero nombre-alumnoXX.box en el directorio donde hemos ejecutado el comando.
 
+![](20.png)
 * **"vagrant box add nombre-alumno/bulls nombre-alumno5.box"**, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
 
+![](21.png)
+
 * **"vagrant box list"**, consultar ahora la lista de cajas Vagrant disponibles.
+
+![](22.png)
