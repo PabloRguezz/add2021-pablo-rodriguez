@@ -37,9 +37,11 @@ Importar imagen Docker desde fichero:
 * **"docker load -i alumnoXXdocker.tar"**, cargamos la imagen docker a partir del fichero tar. Cuando se importa una imagen se muestra en pantalla las capas que tiene. Las capas las veremos en un momento.
 
 ![](6.png)
+
 * **"docker images"**, comprobamos que la nueva imagen está disponible.
 
 ![](30.png)
+
 * Probar a crear un contenedor (app3alumno), a partir de la nueva imagen.
 
 ![](7.png)
@@ -65,18 +67,22 @@ A continuación vamos a crear un contenedor con el nombre app4nginx2, a partir d
 **"docker run --name=app4nginx2 -p 8082:80 -t nombre-alumno/nginx2"**
 
 ![](10.png)
+
 Desde otra terminal:
 
 **"docker ps"**, para comprobar que el contenedor está en ejecución y en escucha por el puerto deseado.
 
 ![](11.png)
+
 Comprobar en el navegador:
 * URL http://localhost:PORTNUMBER
 
 ![](12.png)
+
 * URL http://localhost:PORTNUMBER/holamundo2.html
 
 ![](13.png)
+
 ### 4.4 Usar imágenes ya creadas
 Crea el directorio dockerXXb. Entrar al directorio.
 
@@ -86,6 +92,7 @@ Crear fichero holamundo3.html con:
 * Fecha: Fecha actual
 
 ![](14.png)
+
     Crea el siguiente Dockerfile
 
 ![](15.png)
@@ -95,6 +102,7 @@ Poner el el directorio dockerXXb los ficheros que se requieran para construir el
 **"docker build -t nombre-alumno/nginx3 ."**, crear la imagen.
 
 ![](16.png)
+
 **"docker run --name=app5nginx3 -d -p 8083:80 nombre-alumno/nginx3"**, crear contenedor.
 
 ![](17.png)
@@ -103,6 +111,7 @@ Comprobar el acceso a "holamundo3.html".
 ![](18.png)
 
 ![](19.png)
+
 ## 5. Docker Hub
 
 Ahora vamos a crear un contenedor "holamundo" y subirlo a Docker Hub.
