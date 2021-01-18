@@ -93,7 +93,7 @@ Crear fichero holamundo3.html con:
 
 ![](14.png)
 
-    Crea el siguiente Dockerfile
+  Crea el siguiente Dockerfile
 
 ![](15.png)
 
