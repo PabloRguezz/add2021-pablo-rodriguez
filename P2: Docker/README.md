@@ -134,9 +134,11 @@ Subir la imagen a Docker Hub:
 Registrarse en Docker Hub.
 
 ![](25.png)
+
 **"docker login -u USUARIO-DOCKER"**, para abrir la conexión.
 
 ![](26.png)
+
 **"docker tag nombre-alumno/holamundo:latest USUARIO-DOCKER/holamundo:version1"**, etiquetamos la imagen con "version1".
 
 ![](27.png)
