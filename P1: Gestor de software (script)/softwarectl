@@ -73,7 +73,7 @@ elsif option == '--status'
 # Opción del comando sin ningún parámetro
 
 elsif option.nil?
-  puts 'Se aconseja el uso de "--help" para ver la ayuda.'
+  puts 'Es aconsajable usar --help si necesita alguna ayuda'
 
 # Opcion del comando con el parametro de run impidiendo ejecutarlo sin ser root
 
@@ -89,7 +89,7 @@ elsif option == '--run'
     end
 
   elsif user != 0
-    puts "Se necesita ser usuario root para ejecutar el script"
+    puts "Para usar este script necesitar ser el usuario root"
     exit 1
   end
 end
